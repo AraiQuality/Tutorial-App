@@ -1,1 +1,1 @@
-PATH=/usr/local/heroku/bin:$PATH
+PATH="$PATH:~/environment/heroku/bin"
