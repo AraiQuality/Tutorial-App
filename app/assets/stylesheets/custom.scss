@@ -138,3 +138,20 @@ input, textarea, select, .uneditable-input {
     border-bottom: 1px solid $gray-lighter;
   }
 }
+
+/* btn */
+
+.btn-attendances-update {
+  margin: 0 auto;
+  width: 100%;
+  max-width: 555px;
+  .btn {
+    width: 49%;
+    max-width: 275px;
+    margin: 5px 5px 0 0;
+    float: left;
+    &.btn-default {
+      margin-right: 0;
+    }
+  }
+}
