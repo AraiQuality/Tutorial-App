@@ -1,5 +1,5 @@
 module AttendancesHelper
-  
+
   def current_time
     Time.new(
       Time.now.year,

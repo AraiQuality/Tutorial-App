@@ -155,3 +155,14 @@ input, textarea, select, .uneditable-input {
     }
   }
 }
+
+/*week day*/
+
+.wday-6 {
+  color: blue;
+  font-weight: bold;
+}
+.wday-0, .holiday {
+  color: red;
+  font-weight: bold;
+}
