@@ -1,0 +1,28 @@
+- provide(:title, "勤怠編集")
+div
+  h1 勤怠編集画面
+  = form_for(@user, url: update_attendances_path, method: :patch) do |f|
+    table.table-bordered.table-striped.table-condensed
+      thead
+        tr
+          th 日付
+          th 曜日
+          th 出勤時間
+          th 退勤時間
+          th 在社時間
+          th 備考
+      tbody
+        - @dates.each do |day|
+          = fields_for "attendances[]", day do |af|
+            tr
+              td = day.worked_on.to_s(:date)
+              td = %w{日 月 火 水 木 金 土}[day.worked_on.wday]
+              td = af.time_field :started_at, class: "form-control"
+              td = af.time_field :finished_at, class: "form-control"
+              td 
+                - if day.started_at.present? && day.finished_at.present?
+                  = working_times(day.started_at, day.finished_at)
+              td = af.text_field :note, class: "form-control"
+    div.btn-attendances-update
+      = f.submit "更新", class: "btn btn-primary"
+      = link_to "キャンセル", user_path(@user, params:{first_day: @first_day }), class: "btn btn-default btn-block"
